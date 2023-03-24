@@ -172,3 +172,4 @@ void __fastcall TForm1::testeandostrings1Click(TObject* Sender)
 }
 //---------------------------------------------------------------------------
 
+
