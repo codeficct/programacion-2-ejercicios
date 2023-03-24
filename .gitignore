@@ -40,6 +40,8 @@ __history/
 __recovery/
 __astcache
 *.~*
+Win32/Release/
+Win32/Debug/
 
 *.exe
 *.dll
