@@ -22,18 +22,18 @@ object Form1: TForm1
     Caption = 'Input'
   end
   object Label1: TLabel
-    Left = 66
+    Left = 48
     Top = 110
-    Width = 64
+    Width = 82
     Height = 21
-    Caption = 'Output-1'
+    Caption = 'Resultado 1'
   end
   object label2: TLabel
-    Left = 66
+    Left = 48
     Top = 156
-    Width = 64
+    Width = 82
     Height = 21
-    Caption = 'Output-2'
+    Caption = 'Resultado 2'
   end
   object Label3: TLabel
     Left = 262
@@ -109,6 +109,29 @@ object Form1: TForm1
       object testeandostrings1: TMenuItem
         Caption = 'testeando strings'
         OnClick = testeandostrings1Click
+      end
+      object SumarPrimos1: TMenuItem
+        Caption = 'Sumar Primos'
+        OnClick = SumarPrimos1Click
+      end
+      object Moverdigitomayoralfinal1: TMenuItem
+        Caption = 'Mover digito mayor al final'
+        OnClick = Moverdigitomayoralfinal1Click
+      end
+      object OrdenarDigitos1: TMenuItem
+        Caption = 'Ordenar Digitos'
+        OnClick = OrdenarDigitos1Click
+      end
+      object VerificarsiestaOrdenado1: TMenuItem
+        Caption = 'Verificar si esta Ordenado'
+        OnClick = VerificarsiestaOrdenado1Click
+      end
+    end
+    object Menu21: TMenuItem
+      Caption = 'Menu 2'
+      object est1: TMenuItem
+        Caption = 'Test'
+        OnClick = est1Click
       end
     end
   end

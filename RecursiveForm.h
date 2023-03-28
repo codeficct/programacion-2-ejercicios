@@ -29,6 +29,12 @@ __published: // IDE-managed Components
 	TMenuItem* Potenciadeunnumero1;
 	TEdit* Input2;
 	TLabel* Label3;
+	TMenuItem *SumarPrimos1;
+	TMenuItem *Moverdigitomayoralfinal1;
+	TMenuItem *OrdenarDigitos1;
+	TMenuItem *VerificarsiestaOrdenado1;
+	TMenuItem *Menu21;
+	TMenuItem *est1;
 
 	void __fastcall Eliminardigitosimpares1Click(TObject* Sender);
 	void __fastcall digitomayorymenor2Click(TObject* Sender);
@@ -38,6 +44,11 @@ __published: // IDE-managed Components
 	void __fastcall Digitomayor1Click(TObject* Sender);
 	void __fastcall Button1Click(TObject* Sender);
 	void __fastcall Potenciadeunnumero1Click(TObject* Sender);
+	void __fastcall SumarPrimos1Click(TObject *Sender);
+	void __fastcall Moverdigitomayoralfinal1Click(TObject *Sender);
+	void __fastcall OrdenarDigitos1Click(TObject *Sender);
+	void __fastcall VerificarsiestaOrdenado1Click(TObject *Sender);
+	void __fastcall est1Click(TObject *Sender);
 
 private: // User declarations
 public: // User declarations
