@@ -11,6 +11,8 @@ object Form1: TForm1
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu1
+  OldCreateOrder = True
+  PixelsPerInch = 96
   TextHeight = 21
   object Label0: TLabel
     Left = 66
