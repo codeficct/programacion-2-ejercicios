@@ -35,6 +35,10 @@ __published: // IDE-managed Components
 	TMenuItem *VerificarsiestaOrdenado1;
 	TMenuItem *Menu21;
 	TMenuItem *est1;
+	TMenuItem *Devuelvesolonumeros1;
+	TMenuItem *Eliminarpalabrasqueserepitansuvocal1;
+	TMenuItem *Inverso1;
+	TMenuItem *Elimnarletrasnoalfabeticas1;
 
 	void __fastcall Eliminardigitosimpares1Click(TObject* Sender);
 	void __fastcall digitomayorymenor2Click(TObject* Sender);
@@ -49,6 +53,11 @@ __published: // IDE-managed Components
 	void __fastcall OrdenarDigitos1Click(TObject *Sender);
 	void __fastcall VerificarsiestaOrdenado1Click(TObject *Sender);
 	void __fastcall est1Click(TObject *Sender);
+	void __fastcall ContarLetras1Click(TObject *Sender);
+	void __fastcall Devuelvesolonumeros1Click(TObject *Sender);
+	void __fastcall Eliminarpalabrasqueserepitansuvocal1Click(TObject *Sender);
+	void __fastcall Inverso1Click(TObject *Sender);
+	void __fastcall Elimnarletrasnoalfabeticas1Click(TObject *Sender);
 
 private: // User declarations
 public: // User declarations
