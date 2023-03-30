@@ -24,11 +24,31 @@ void __fastcall TForm1::Button1Click(TObject* Sender) {
 	// Recursivo(5);
 }
 // ---------------------------------------------------------------------------
+// 1) Escribir una función que devuelva la potencia de un numero x^n
+float PowerOfANumber(float x, byte n) {
+	if ((x == 0) && (n == 0)) {
+		throw "Error: Indeterminación";
+	}
+	else {
+		return (n == 0) ? 1 : PowerOfANumber(x, n - 1) * x;
+	}
+}
+
 void __fastcall TForm1::Potenciadeunnumero1Click(TObject* Sender) {
-	// try {
-	// }
-	// catch (const char* x) {
-	// }
+	try {
+		if (Input->Text == "" || Input2->Text == "") {
+			throw "Debe ingresar un número";
+		}
+
+		float num = StrToFloat(Input->Text);
+		byte exp = StrToInt(Input2->Text);
+
+		Result1->Text = PowerOfANumber(num, exp);
+	}
+	catch (const char* x) {
+		ShowMessage(x);
+		Result1->Text = "";
+	}
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Sumar1Click(TObject* Sender) {
