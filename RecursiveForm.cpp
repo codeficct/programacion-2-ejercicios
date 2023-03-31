@@ -51,8 +51,13 @@ void __fastcall TForm1::Potenciadeunnumero1Click(TObject* Sender) {
 	}
 }
 // ---------------------------------------------------------------------------
+// 2) Escribir una función que sume los digitos de un numero
+byte Addition(Cardinal x) {
+	return (x < 10) ? x : (Addition(x / 10) + x % 10);
+}
+
 void __fastcall TForm1::Sumar1Click(TObject* Sender) {
-	// Result1->Text = Addition(StrToInt(Input->Text));
+	Result1->Text = Addition(StrToInt(Input->Text));
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::SumarPrimos1Click(TObject* Sender) {
