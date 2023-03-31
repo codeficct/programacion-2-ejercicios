@@ -60,9 +60,21 @@ void __fastcall TForm1::Sumar1Click(TObject* Sender) {
 	Result1->Text = Addition(StrToInt(Input->Text));
 }
 // ---------------------------------------------------------------------------
+// 3) Escribir una función que sume los dígitos primos de un número
+bool IsPrime(byte dig) {
+	return !((dig == 0) || (dig == 4) ||(dig == 6) ||
+		(dig == 8) || (dig == 9)); // devolvemos true si el digito es primo
+}
+
+byte AddDigitPrimes(Cardinal x) {
+	if (x < 10)
+		return x;
+	else
+		return AddDigitPrimes(x / 10) + (IsPrime(x % 10) ? x % 10 : 0);
+}
+
 void __fastcall TForm1::SumarPrimos1Click(TObject* Sender) {
-	//          Result1->Text = AddDigitPrimes(StrToInt(Input->Text));
-	// Result1->Text = SumarDigitosPrimos(StrToInt(Input->Text));
+	Result1->Text = AddDigitPrimes(StrToInt(Input->Text));
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Digitomayor1Click(TObject* Sender) {
