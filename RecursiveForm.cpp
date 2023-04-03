@@ -69,16 +69,29 @@ bool IsPrime(byte dig) {
 byte AddDigitPrimes(Cardinal x) {
 	if (x < 10)
 		return x;
-	else
-		return AddDigitPrimes(x / 10) + (IsPrime(x % 10) ? x % 10 : 0);
+	else {
+		byte lastDigit = x % 10;
+		return AddDigitPrimes(x / 10) + (IsPrime(lastDigit) ? lastDigit : 0);
+	}
 }
 
 void __fastcall TForm1::SumarPrimos1Click(TObject* Sender) {
 	Result1->Text = AddDigitPrimes(StrToInt(Input->Text));
 }
 // ---------------------------------------------------------------------------
+// 4) Escribir una función que devuelva el dígito mayor de un número
+byte GetMajorDigit(Cardinal x) {
+	if (x < 10) // caso base
+		return x;
+	else { // general case
+		byte lastDigit = x % 10;
+		byte m = GetMajorDigit(x / 10);
+		return (m < lastDigit) ? lastDigit : m;
+	}
+}
+
 void __fastcall TForm1::Digitomayor1Click(TObject* Sender) {
-	// Result1->Text = MajorDigit(StrToInt(Input->Text));
+	Result1->Text = GetMajorDigit(StrToInt(Input->Text));
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Moverdigitomayoralfinal1Click(TObject* Sender) {
