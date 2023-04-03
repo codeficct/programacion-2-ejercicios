@@ -94,10 +94,25 @@ void __fastcall TForm1::Digitomayor1Click(TObject* Sender) {
 	Result1->Text = GetMajorDigit(StrToInt(Input->Text));
 }
 // ---------------------------------------------------------------------------
+// 5) Escribir un algoritmo que pegue el digito mayor al final
+void MoveDigitMajorAtEnd(Cardinal& x) {
+	if (x >= 10) {
+		byte major = x % 10, minor;
+		x = x / 10;
+		MoveDigitMajorAtEnd(x);
+		minor = x % 10;
+		x = (major >= minor)
+			// si "major" es el dígito mayor, pegamos al final
+			? x * 10 + major;
+			// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
+			: ((x / 10) * 10 + major) * 10 + minor
+	}
+}
+
 void __fastcall TForm1::Moverdigitomayoralfinal1Click(TObject* Sender) {
-	// Cardinal z = StrToInt(Input->Text);
-	// MajorAtEnd(z);
-	// Result1->Text = z;
+	Cardinal z = StrToInt(Input->Text);
+	MoveDigitMajorAtEnd(z);
+	Result1->Text = z;
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::OrdenarDigitos1Click(TObject* Sender) {
