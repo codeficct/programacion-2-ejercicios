@@ -110,15 +110,26 @@ void MoveDigitMajorAtEnd(Cardinal& x) {
 }
 
 void __fastcall TForm1::Moverdigitomayoralfinal1Click(TObject* Sender) {
-	Cardinal z = StrToInt(Input->Text);
-	MoveDigitMajorAtEnd(z);
-	Result1->Text = z;
+	Cardinal num = StrToInt(Input->Text);
+	MoveDigitMajorAtEnd(num);
+	Result1->Text = num;
 }
 // ---------------------------------------------------------------------------
+// 6) Hacer un proceso para ordenar un número en sus dígitos
+void SortDigits(Cardinal& x) {
+	if (x >= 10) {
+		MoveDigitMajorAtEnd(x);
+		byte lastDigit = x % 10;
+		x = x / 10;
+		SortDigits(x);
+		x = x * 10 + lastDigit;
+	}
+}
+
 void __fastcall TForm1::OrdenarDigitos1Click(TObject* Sender) {
-	// Cardinal z = StrToInt(Input->Text);
-	// OrdenarDigitos(z);
-	// Result1->Text = z;
+	Cardinal num = StrToInt(Input->Text);
+	SortDigits(num);
+	Result1->Text = num;
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::VerificarsiestaOrdenado1Click(TObject* Sender) {
