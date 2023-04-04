@@ -132,9 +132,20 @@ void __fastcall TForm1::OrdenarDigitos1Click(TObject* Sender) {
 	Result1->Text = num;
 }
 // ---------------------------------------------------------------------------
+// 7) Algoritmo para verificar si un número está ordenado
+bool CheckIfIsOrder(Cardinal x) {
+	if (x < 10)
+		return true;
+	else {
+		byte z = x % 10;
+		byte y = (x / 10) % 10;
+		return CheckIfIsOrder(x / 10) && (y <= z);
+	}
+}
+
 void __fastcall TForm1::VerificarsiestaOrdenado1Click(TObject* Sender) {
-	// Result1->Text = CheckIfIsOrder(StrToInt(Input->Text)) ? "Está Ordenado." :
-		// "No está ordenado.";
+	bool isOrder = CheckIfIsOrder(StrToInt(Input->Text));
+	Result1->Text = isOrder ? "Está Ordenado." : "No está ordenado.";
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Eliminardigitosimpares1Click(TObject* Sender) {
