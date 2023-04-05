@@ -169,11 +169,25 @@ void __fastcall TForm1::Eliminardigitosimpares1Click(TObject* Sender) {
 	Result1->Text = z;
 }
 // ---------------------------------------------------------------------------
+// 8) Algoritmo que devuelva el dígito mayor y menor de un número
+void MajorAndMinorDigit(Cardinal x, byte& major, byte& minor) {
+	if (x < 10) {
+		major = x;
+		minor = x;
+	}
+	else {
+		byte digit = x % 10;
+		MajorAndMinorDigit(x / 10, major, minor);
+		minor = digit < minor ? digit : minor;
+		major = digit > major ? digit : major
+	}
+}
+
 void __fastcall TForm1::digitomayorymenor2Click(TObject* Sender) {
-	// byte a, b;
-	// MajorAndMinorDigit(StrToInt(Input->Text), a, b);
-	// Result1->Text = a;
-	// Result2->Text = b;
+	byte major, minor;
+	MajorAndMinorDigit(StrToInt(Input->Text), major, minor);
+	Result1->Text = major;
+	Result2->Text = minor;
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::ContarLetras1Click(TObject* Sender) {
