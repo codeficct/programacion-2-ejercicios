@@ -148,10 +148,25 @@ void __fastcall TForm1::VerificarsiestaOrdenado1Click(TObject* Sender) {
 	Result1->Text = isOrder ? "Está Ordenado." : "No está ordenado.";
 }
 // ---------------------------------------------------------------------------
+// 8) Algoritmo para eliminar digitos impares
+void DeleteOddDigits(Cardinal& x) {
+	if (x < 10) { // Caso base
+		if (x % 2 == 1)
+			x = 0;
+	}
+	else { // Caso general
+		byte lastDigit = x % 10;
+		x = x / 10;
+		DeleteOddDigits(x);
+		if (lastDigit % 2 == 0)
+			x = x * 10 + lastDigit;
+	}
+}
+
 void __fastcall TForm1::Eliminardigitosimpares1Click(TObject* Sender) {
-	// Cardinal z = StrToInt(Input->Text);
-	// DeleteDigitOdd(z);
-	// Result1->Text = z;
+	Cardinal z = StrToInt(Input->Text);
+	DeleteOddDigits(z);
+	Result1->Text = z;
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::digitomayorymenor2Click(TObject* Sender) {
