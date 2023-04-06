@@ -211,8 +211,24 @@ void __fastcall TForm1::ContarLetras1Click(TObject* Sender) {
 	Result1->Text = AmountLetters(Input->Text);
 }
 // ---------------------------------------------------------------------------
+// 11) Contar vocales de una cadena
+bool IsVowel(char l) {
+	AnsiString vowels = "aeiouAEIOUáéíóúÁÉÍÓÚ";
+	return vowels.Pos(l) > 0;
+}
+
+byte AmountVowels(AnsiString x) {
+	if (x == "")
+		return 0;
+	else {
+		char firstLetter = x[1];
+		x.Delete(1, 1);
+		return AmountVowels(x) + (IsVowel(firstLetter) ? 1 : 0);
+	}
+}
+
 void __fastcall TForm1::CantidaddevocalesdeunString1Click(TObject* Sender) {
-	// Result1->Text = AmountVowels(Input->Text);
+	Result1->Text = AmountVowels(Input->Text);
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::testeandostrings1Click(TObject* Sender) {
