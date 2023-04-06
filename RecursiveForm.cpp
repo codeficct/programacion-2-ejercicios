@@ -169,7 +169,7 @@ void __fastcall TForm1::Eliminardigitosimpares1Click(TObject* Sender) {
 	Result1->Text = z;
 }
 // ---------------------------------------------------------------------------
-// 8) Algoritmo que devuelva el dígito mayor y menor de un número
+// 9) Algoritmo que devuelva el dígito mayor y menor de un número
 void MajorAndMinorDigit(Cardinal x, byte& major, byte& minor) {
 	if (x < 10) {
 		major = x;
@@ -190,8 +190,25 @@ void __fastcall TForm1::digitomayorymenor2Click(TObject* Sender) {
 	Result2->Text = minor;
 }
 // ---------------------------------------------------------------------------
+// 10) Contar letras de una cadena
+bool IsLetter(char l) { // verificar si un caracter es una letra
+	AnsiString letters =
+		"qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLÑZXCVBNMáéíóúÁÉÍÓÚ";
+	return letters.Pos(l) > 0;
+}
+
+byte AmountLetters(AnsiString x) {
+	if (x == "")
+		return 0;
+	else {
+		char firstLetter = x[1];
+		x.Delete(1, 1);
+		return AmountLetters(x) + (IsLetter(firstLetter) ? 1 : 0);
+	}
+}
+
 void __fastcall TForm1::ContarLetras1Click(TObject* Sender) {
-	// Result1->Text = AmountLetters(Input->Text);
+	Result1->Text = AmountLetters(Input->Text);
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::CantidaddevocalesdeunString1Click(TObject* Sender) {
