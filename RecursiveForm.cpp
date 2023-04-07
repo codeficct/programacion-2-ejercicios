@@ -298,15 +298,27 @@ void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
 // 13) Prototipos
 // Invertir una cadena
 // Prototipo 1 (k=n-1) - menos el primero
-AnsiString inverso1(AnsiString x) {
+AnsiString reverse1(AnsiString x) {
 	if (x == "")
 		return "";
 	else {
 		char z = x[1];
 		x.Delete(1, 1);
-		return inverso1(x) + z;
+		return reverse1(x) + z;
 	}
 }
+
+// Prototipo 2 (k=n-1) - menos el último
+AnsiString reverse2(AnsiString x) {
+	if (x == "")
+		return "";
+	else {
+		char z = x[x.Length()];
+		x.Delete(x.Length(), 1);
+		return (AnsiString)z + reverse2(x);
+	}
+}
+
 void __fastcall TForm1::est1Click(TObject* Sender) {
 	// Result1->Text = VocalRepetida(Input->Text) ? "yes" : "no";
 }
