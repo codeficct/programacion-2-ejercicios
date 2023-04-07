@@ -295,6 +295,10 @@ void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
 	Result1->Text = DeleteRepeatVowelWord(Input->Text);
 }
 // ---------------------------------------------------------------------------
+void __fastcall TForm1::est1Click(TObject* Sender) {
+	Result1->Text = IsRepeatedVowel(Input->Text) ? "yes" : "no";
+}
+// ---------------------------------------------------------------------------
 // 13) Prototipos
 // Invertir una cadena
 // Prototipo 1 (k=n-1) - menos el primero
@@ -379,18 +383,32 @@ AnsiString reverse7(AnsiString x) {
 		return reverse6(x) + reverse6(z);
 	}
 }
-
-void __fastcall TForm1::est1Click(TObject* Sender) {
-	// Result1->Text = VocalRepetida(Input->Text) ? "yes" : "no";
-}
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Inverso1Click(TObject* Sender) {
-	// Result1->Text = inverso5(Input->Text);
+	Result1->Text = reverse7(Input->Text);
 }
 // ---------------------------------------------------------------------------
+// 14) Algoritmo para eliminar todos los caracteres que NO sean alfebeticos,
+// excepto el espacio
+void DeleteNoLetter(AnsiString& x) {
+	byte n = x.Length();
+	if (n < 2) {
+		if (n == 1 && !(IsLetter(x[1]) || x == ' ')) {
+			x = "";
+		}
+	}
+	else {
+		AnsiString z = x.SubString(n - 1, 2);
+		x.Delete(n - 1, 2);
+		DeleteNoLetter(x);
+		x = x + (IsLetter(z[1]) || (char)z[1] == ' ' ? (AnsiString)z[1] : "");
+		x = x + (IsLetter(z[2]) || (char)z[2] == ' ' ? (AnsiString)z[2] : "");
+	}
+}
+
 void __fastcall TForm1::Elimnarletrasnoalfabeticas1Click(TObject* Sender) {
-	// AnsiString x = Input->Text;
-	// DeleteNoLetter(x);
-	// Result1->Text = x;
+	AnsiString text = Input->Text;
+	DeleteNoLetter(text);
+	Result1->Text = text;
 }
 // ---------------------------------------------------------------------------
