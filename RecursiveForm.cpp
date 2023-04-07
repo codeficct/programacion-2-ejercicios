@@ -342,6 +342,20 @@ AnsiString reverse4(AnsiString x) {
 	}
 }
 
+// Prototipo 5 (k=n-2) - menos el primero y el último
+AnsiString reverse5(AnsiString x) {
+	byte n = x.Length();
+	if (n < 2)
+		return x;
+	else {
+		char z1 = x[1];
+		char z2 = x[n];
+		x.Delete(n, 1);
+		x.Delete(1, 1);
+		return (AnsiString)z2 + reverse5(x) + z1;
+	}
+}
+
 void __fastcall TForm1::est1Click(TObject* Sender) {
 	// Result1->Text = VocalRepetida(Input->Text) ? "yes" : "no";
 }
