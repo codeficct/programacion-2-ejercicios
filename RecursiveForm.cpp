@@ -295,6 +295,18 @@ void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
 	Result1->Text = DeleteRepeatVowelWord(Input->Text);
 }
 // ---------------------------------------------------------------------------
+// 13) Prototipos
+// Invertir una cadena
+// Prototipo 1 (k=n-1) - menos el primero
+AnsiString inverso1(AnsiString x) {
+	if (x == "")
+		return "";
+	else {
+		char z = x[1];
+		x.Delete(1, 1);
+		return inverso1(x) + z;
+	}
+}
 void __fastcall TForm1::est1Click(TObject* Sender) {
 	// Result1->Text = VocalRepetida(Input->Text) ? "yes" : "no";
 }
