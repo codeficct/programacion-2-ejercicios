@@ -261,6 +261,35 @@ void __fastcall TForm1::Devuelvesolonumeros1Click(TObject* Sender) {
 	Result1->Text = ReturnNumber(Input->Text);
 }
 // ---------------------------------------------------------------------------
+// Verificar si una vocal se repite en una palabra
+bool IsRepeatedVowel(AnsiString w) {
+	if (w.Length() == 0)
+		return false;
+	else {
+		char a = w[1]; // first character
+		w.Delete(1, 1); // delete first character
+		return IsRepeatedVowel(w) || (IsVowel(a) && w.Pos(a) > 0);
+	}
+}
+
+// Eliminar palabras que contengan vocales repetidas
+AnsiString DeleteRepeatVowelWord(AnsiString x) {
+	x.Trim();
+	if (x.Length() == 0)
+		return "";
+	else {
+		byte pos = x.Pos(" ");
+		AnsiString word = pos != 0 ? x.SubStrin
+		g(1, pos - 1) : x;
+		x = pos != 0 ? x.SubString(pos + 1, x.Length() - pos) : "";
+
+		if (IsRepeatedVowel(word))
+			return DeleteRepeatVowelWord(x).Trim();
+
+		return word.Trim() + " " + DeleteRepeatVowelWord(x).Trim();
+	}
+}
+
 void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
 	(TObject* Sender) {
 	// Result1->Text = DeleteRepeatVowelWord(Input->Text);
