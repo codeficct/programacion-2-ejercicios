@@ -292,7 +292,7 @@ AnsiString DeleteRepeatVowelWord(AnsiString x) {
 
 void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
 	(TObject* Sender) {
-	// Result1->Text = DeleteRepeatVowelWord(Input->Text);
+	Result1->Text = DeleteRepeatVowelWord(Input->Text);
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::est1Click(TObject* Sender) {
