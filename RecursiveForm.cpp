@@ -319,6 +319,17 @@ AnsiString reverse2(AnsiString x) {
 	}
 }
 
+// Prototipo 3 (k=n-2) - menos los dos primeros
+AnsiString reverse3(AnsiString x) {
+	if (x.Length() < 2)
+		return x;
+	else {
+		AnsiString z = x.SubString(1, 2);
+		x.Delete(1, 2);
+		return reverse3(x) + z[2] + z[1];
+	}
+}
+
 void __fastcall TForm1::est1Click(TObject* Sender) {
 	// Result1->Text = VocalRepetida(Input->Text) ? "yes" : "no";
 }
