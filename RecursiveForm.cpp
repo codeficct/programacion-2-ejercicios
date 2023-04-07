@@ -236,8 +236,29 @@ void __fastcall TForm1::testeandostrings1Click(TObject* Sender) {
 	Result1->Text = someThings[StrToInt(Input->Text)];
 }
 // ---------------------------------------------------------------------------
+// 12) Devolver solo los números de una cadena
+bool isNumber(char z) {
+	return (z >= '0') && (z <= '9');
+}
+
+Cardinal ReturnNumber(AnsiString x) {
+	Cardinal c, c1;
+	if (x == "")
+		c = 0;
+	else {
+		byte n = x.Length();
+		char lastCharacter = x[n];
+		x.Delete(n, 1);
+		c = ReturnNumber(x);
+		if (isNumber(lastCharacter)) {
+			c = c * 10 + (lastCharacter - 48);
+		}
+	}
+	return c;
+}
+
 void __fastcall TForm1::Devuelvesolonumeros1Click(TObject* Sender) {
-	// Result1->Text = ReturnNumber(Input->Text);
+	Result1->Text = ReturnNumber(Input->Text);
 }
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
