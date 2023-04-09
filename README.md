@@ -10,8 +10,12 @@
 }
 ```
 
-## Índice (Contenido del repositorio)
+## Índice
+- [Índice](#índice)
 - [Procedimiento para escribir algoritmos recursivos](#procedimiento-para-escribir-algoritmos-recursivos)
+- [Algoritmos con números](#algoritmos-con-números)
+  - [Potencia de un número](#potencia-de-un-número)
+- [Algoritmos con cadenas](#algoritmos-con-cadenas)
 
 ## Procedimiento para escribir algoritmos recursivos
 
@@ -33,7 +37,6 @@ D_n  =  D_ntd  ∩  D_ncp
 $D_ntd$ = Dominio de la variable por el tipo de dato de la variable.
 <br>
 $D_ncp$ = Dominio de la variable por el contexto del problema.
-$${\infty}$$
 
 <details>
   <summary>Ver ejemplo</summary>
