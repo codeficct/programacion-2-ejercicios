@@ -40,15 +40,11 @@ $${\infty}$$
   
 Sea $n$ una variable que representa un dia de la semana.
 
-<div align="center">
-
 $D_n$ = byte $∩$ { 1, 2, 3, 4, 5, 6, 7 }
 <br>
 $D_n$ = [0, 255] $∩$ [1, 7]
 <br>
 $D_n$ = [1, 7]
-
-</div>
   
 </details>
 
