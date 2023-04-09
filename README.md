@@ -11,7 +11,7 @@
 ```
 
 ## Índice (Contenido del repositorio)
-- [Procedimiento para escribir algoritmos recursivos](#rocedimiento-para-escribir-algoritmos-recursivos)
+- [Procedimiento para escribir algoritmos recursivos](#procedimiento-para-escribir-algoritmos-recursivos)
 
 ## Procedimiento para escribir algoritmos recursivos
 
