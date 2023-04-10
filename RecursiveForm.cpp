@@ -569,3 +569,22 @@ void __fastcall TForm1::Matriz2Click(TObject *Sender) {
 	Cargar1(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
 }
 // ---------------------------------------------------------------------------
+// Solucion 2 para cargar una matriz randómicamente por columnas
+void LlenarColumnas(TStringGrid *A, byte c, byte n) {
+	if (n > 0) {
+		LlenarColumnas(A, c, n - 1);
+		A->Cells[c][n - 1] = Random(25);
+	}
+}
+
+void Cargar2(TStringGrid *A, byte m, byte n) {
+	if (n > 0) {
+		Cargar2(A, m, n - 1);
+		LlenarColumnas(A, n - 1, m);
+	}
+}
+
+void __fastcall TForm1::Cargarporcolumnas1Click(TObject *Sender) {
+	Cargar2(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
+}
+// ---------------------------------------------------------------------------
