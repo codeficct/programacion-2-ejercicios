@@ -543,3 +543,11 @@ void __fastcall TForm1::BubbleSort1Click(TObject *Sender) {
 	BubbleSort(StringGrid1, StringGrid1->ColCount);
 }
 // ---------------------------------------------------------------------------
+// ALGORITMOS CON MATRICES
+// Dimensionar StringGrid para matrices
+void __fastcall TForm1::Button2Click(TObject *Sender) {
+	StringGrid1->ColCount = StrToInt(Input->Text);
+	StringGrid1->RowCount = StrToInt(Input2->Text);
+}
+
+// ---------------------------------------------------------------------------
