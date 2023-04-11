@@ -14,11 +14,11 @@ __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
 }
 
 // ¡No ejecutar! porque esta vaina es infinito...
-void Recursivo(byte n) {
-	ShowMessage("Hola");
-	Recursivo(n + 1);
-	ShowMessage("Chau");
-}
+// void Recursivo(byte n) {
+// ShowMessage("Hola");
+// Recursivo(n + 1);
+// ShowMessage("Chau");
+// }
 
 void __fastcall TForm1::Button1Click(TObject* Sender) {
 	// Recursivo(5);
@@ -108,9 +108,9 @@ void MoveDigitMajorAtEnd(Cardinal& x) {
 		minor = x % 10;
 		x = (major >= minor)
 			// si "major" es el dígito mayor, pegamos al final
-			? x * 10 + major;
-		// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
-		: ((x / 10) * 10 + major) * 10 + minor
+			? x * 10 + major
+			// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
+			: ((x / 10) * 10 + major) * 10 + minor;
 	}
 }
 
@@ -188,7 +188,7 @@ void MajorAndMinorDigit(Cardinal x, byte& major, byte& minor) {
 		byte digit = x % 10;
 		MajorAndMinorDigit(x / 10, major, minor);
 		minor = digit < minor ? digit : minor;
-		major = digit > major ? digit : major
+		major = digit > major ? digit : major;
 	}
 }
 
@@ -293,7 +293,7 @@ AnsiString DeleteRepeatVowelWord(AnsiString x) {
 		return "";
 	else {
 		byte pos = x.Pos(" ");
-		AnsiString word = pos != 0 ? x.SubStrin g(1, pos - 1) : x;
+		AnsiString word = pos != 0 ? x.SubString(1, pos - 1) : x;
 		x = pos != 0 ? x.SubString(pos + 1, x.Length() - pos) : "";
 
 		if (IsRepeatedVowel(word))
@@ -427,5 +427,54 @@ void __fastcall TForm1::Elimnarletrasnoalfabeticas1Click(TObject* Sender) {
 	AnsiString text = Input->Text;
 	DeleteNoLetter(text);
 	Result1->Text = text;
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::vector2Click(TObject *Sender) {
+	StringGrid1->ColCount = StrToInt(Input->Text);
+}
+
+// ---------------------------------------------------------------------------
+// 15) Realizar una funcion que devuelva la suma de los elementos de un vector
+byte GetAdditionOfVector(TStringGrid *v, byte n) {
+	return n == 0
+		// caso base
+		? 0 : GetAdditionOfVector(v, n - 1) + StrToInt(v->Cells[n - 1][0]);
+}
+
+byte GetAdditionOfVector2(TStringGrid *v, byte n) {
+	return n == 0
+		// caso base
+		? 0 : GetAdditionOfVector(v, n - 1) + StrToInt(v->Cells[n - n + 1][0]);
+}
+
+void __fastcall TForm1::SumarElementos1Click(TObject *Sender) {
+	Result1->Text = GetAdditionOfVector2(StringGrid1, StringGrid1->ColCount);
+}
+
+// ---------------------------------------------------------------------------
+byte GetAdditionOfVector3(TStringGrid *v, byte a, byte b) {
+	return ((b - a + 1) == 0)
+		// caso base
+		? 0 : GetAdditionOfVector3(v, a + 1, b) + StrToInt(v->Cells[a][0]);
+}
+
+void __fastcall TForm1::SumarElementoskn1menoselprimero1Click(TObject *Sender) {
+	Result1->Text = GetAdditionOfVector3(StringGrid1, 0,
+		StringGrid1->ColCount - 1);
+}
+
+// ---------------------------------------------------------------------------
+// Sumar Elementos desde a hasta la cantidad (k=n/2)
+byte GetAdditionToRange(TStringGrid *v, byte a, byte n) {
+	byte halfLong = (n + 1) / 2;
+	return (n == 0) ? 0 : ((n < 2) ? StrToInt(v[a]) : GetAdditionToRange(v, a, halfLong) +
+		GetAdditionToRange(v, a + halfLong, n / 2));
+}
+
+void __fastcall TForm1::Sumarkn2derechacorto1Click(TObject *Sender) {
+	byte posInit = StrToInt(Input->Text);
+	byte amount = StrToInt(Input2->Text);
+	Result1->Text = GetAdditionToRange(StringGrid1, posInit, amount);
 }
 // ---------------------------------------------------------------------------
