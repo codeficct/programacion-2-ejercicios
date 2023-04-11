@@ -23,6 +23,7 @@ void Recursivo(byte n) {
 void __fastcall TForm1::Button1Click(TObject* Sender) {
 	// Recursivo(5);
 }
+
 // ---------------------------------------------------------------------------
 // 1) Escribir una función que devuelva la potencia de un numero x^n
 float PowerOfANumber(float x, byte n) {
@@ -50,6 +51,7 @@ void __fastcall TForm1::Potenciadeunnumero1Click(TObject* Sender) {
 		Result1->Text = "";
 	}
 }
+
 // ---------------------------------------------------------------------------
 // 2) Escribir una función que sume los digitos de un numero
 byte Addition(Cardinal x) {
@@ -59,11 +61,12 @@ byte Addition(Cardinal x) {
 void __fastcall TForm1::Sumar1Click(TObject* Sender) {
 	Result1->Text = Addition(StrToInt(Input->Text));
 }
+
 // ---------------------------------------------------------------------------
 // 3) Escribir una función que sume los dígitos primos de un número
 bool IsPrime(byte dig) {
-	return !((dig == 0) || (dig == 4) ||(dig == 6) ||
-		(dig == 8) || (dig == 9)); // devolvemos true si el digito es primo
+	return !((dig == 0) || (dig == 4) || (dig == 6) || (dig == 8) ||
+		(dig == 9)); // devolvemos true si el digito es primo
 }
 
 byte AddDigitPrimes(Cardinal x) {
@@ -78,11 +81,12 @@ byte AddDigitPrimes(Cardinal x) {
 void __fastcall TForm1::SumarPrimos1Click(TObject* Sender) {
 	Result1->Text = AddDigitPrimes(StrToInt(Input->Text));
 }
+
 // ---------------------------------------------------------------------------
 // 4) Escribir una función que devuelva el dígito mayor de un número
 byte GetMajorDigit(Cardinal x) {
 	if (x < 10) // caso base
-		return x;
+			return x;
 	else { // general case
 		byte lastDigit = x % 10;
 		byte m = GetMajorDigit(x / 10);
@@ -93,6 +97,7 @@ byte GetMajorDigit(Cardinal x) {
 void __fastcall TForm1::Digitomayor1Click(TObject* Sender) {
 	Result1->Text = GetMajorDigit(StrToInt(Input->Text));
 }
+
 // ---------------------------------------------------------------------------
 // 5) Escribir un algoritmo que pegue el digito mayor al final
 void MoveDigitMajorAtEnd(Cardinal& x) {
@@ -104,8 +109,8 @@ void MoveDigitMajorAtEnd(Cardinal& x) {
 		x = (major >= minor)
 			// si "major" es el dígito mayor, pegamos al final
 			? x * 10 + major;
-			// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
-			: ((x / 10) * 10 + major) * 10 + minor
+		// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
+		: ((x / 10) * 10 + major) * 10 + minor
 	}
 }
 
@@ -114,6 +119,7 @@ void __fastcall TForm1::Moverdigitomayoralfinal1Click(TObject* Sender) {
 	MoveDigitMajorAtEnd(num);
 	Result1->Text = num;
 }
+
 // ---------------------------------------------------------------------------
 // 6) Hacer un proceso para ordenar un número en sus dígitos
 void SortDigits(Cardinal& x) {
@@ -131,6 +137,7 @@ void __fastcall TForm1::OrdenarDigitos1Click(TObject* Sender) {
 	SortDigits(num);
 	Result1->Text = num;
 }
+
 // ---------------------------------------------------------------------------
 // 7) Algoritmo para verificar si un número está ordenado
 bool CheckIfIsOrder(Cardinal x) {
@@ -147,6 +154,7 @@ void __fastcall TForm1::VerificarsiestaOrdenado1Click(TObject* Sender) {
 	bool isOrder = CheckIfIsOrder(StrToInt(Input->Text));
 	Result1->Text = isOrder ? "Está Ordenado." : "No está ordenado.";
 }
+
 // ---------------------------------------------------------------------------
 // 8) Algoritmo para eliminar digitos impares
 void DeleteOddDigits(Cardinal& x) {
@@ -168,6 +176,7 @@ void __fastcall TForm1::Eliminardigitosimpares1Click(TObject* Sender) {
 	DeleteOddDigits(z);
 	Result1->Text = z;
 }
+
 // ---------------------------------------------------------------------------
 // 9) Algoritmo que devuelva el dígito mayor y menor de un número
 void MajorAndMinorDigit(Cardinal x, byte& major, byte& minor) {
@@ -189,6 +198,7 @@ void __fastcall TForm1::digitomayorymenor2Click(TObject* Sender) {
 	Result1->Text = major;
 	Result2->Text = minor;
 }
+
 // ---------------------------------------------------------------------------
 // 10) Contar letras de una cadena
 bool IsLetter(char l) { // verificar si un caracter es una letra
@@ -210,6 +220,7 @@ byte AmountLetters(AnsiString x) {
 void __fastcall TForm1::ContarLetras1Click(TObject* Sender) {
 	Result1->Text = AmountLetters(Input->Text);
 }
+
 // ---------------------------------------------------------------------------
 // 11) Contar vocales de una cadena
 bool IsVowel(char l) {
@@ -230,11 +241,13 @@ byte AmountVowels(AnsiString x) {
 void __fastcall TForm1::CantidaddevocalesdeunString1Click(TObject* Sender) {
 	Result1->Text = AmountVowels(Input->Text);
 }
+
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::testeandostrings1Click(TObject* Sender) {
 	String someThings = " Hola cómo estás? ";
 	Result1->Text = someThings[StrToInt(Input->Text)];
 }
+
 // ---------------------------------------------------------------------------
 // 12) Devolver solo los números de una cadena
 bool isNumber(char z) {
@@ -260,6 +273,7 @@ Cardinal ReturnNumber(AnsiString x) {
 void __fastcall TForm1::Devuelvesolonumeros1Click(TObject* Sender) {
 	Result1->Text = ReturnNumber(Input->Text);
 }
+
 // ---------------------------------------------------------------------------
 // Verificar si una vocal se repite en una palabra
 bool IsRepeatedVowel(AnsiString w) {
@@ -279,8 +293,7 @@ AnsiString DeleteRepeatVowelWord(AnsiString x) {
 		return "";
 	else {
 		byte pos = x.Pos(" ");
-		AnsiString word = pos != 0 ? x.SubStrin
-		g(1, pos - 1) : x;
+		AnsiString word = pos != 0 ? x.SubStrin g(1, pos - 1) : x;
 		x = pos != 0 ? x.SubString(pos + 1, x.Length() - pos) : "";
 
 		if (IsRepeatedVowel(word))
@@ -294,10 +307,12 @@ void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
 	(TObject* Sender) {
 	Result1->Text = DeleteRepeatVowelWord(Input->Text);
 }
+
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::est1Click(TObject* Sender) {
 	Result1->Text = IsRepeatedVowel(Input->Text) ? "yes" : "no";
 }
+
 // ---------------------------------------------------------------------------
 // 13) Prototipos
 // Invertir una cadena
@@ -383,10 +398,12 @@ AnsiString reverse7(AnsiString x) {
 		return reverse6(x) + reverse6(z);
 	}
 }
+
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::Inverso1Click(TObject* Sender) {
 	Result1->Text = reverse7(Input->Text);
 }
+
 // ---------------------------------------------------------------------------
 // 14) Algoritmo para eliminar todos los caracteres que NO sean alfebeticos,
 // excepto el espacio
