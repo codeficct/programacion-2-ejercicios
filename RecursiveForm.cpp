@@ -588,3 +588,16 @@ void __fastcall TForm1::Cargarporcolumnas1Click(TObject *Sender) {
 	Cargar2(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
 }
 // ---------------------------------------------------------------------------
+// Solucion 3 por filas y columnas
+void Cargar3(TStringGrid *A, byte m, byte n) {
+	if ((m > 0) && (n > 0)) {
+		Cargar3(A, m - 1, n - 1);
+		LlenarFilas(A, m - 1, n);
+		LlenarColumnas(A, n - 1, m);
+	}
+}
+
+void __fastcall TForm1::CargarporFilasyColumnas1Click(TObject *Sender) {
+	Cargar3(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
+}
+// ---------------------------------------------------------------------------
