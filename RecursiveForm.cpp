@@ -621,3 +621,23 @@ void __fastcall TForm1::Cargarporcantidaddecasillas1Click(TObject *Sender) {
 	Cargar4(StringGrid1, m*n, m - 1, n - 1);
 }
 // ---------------------------------------------------------------------------
+// Cargar matriz por el metodo de la vibora xd
+void Cargar5(TStringGrid *A, Word k, byte f, byte c, bool a) {
+	if (k > 0) {
+		A->Cells[c][f] = k;
+		if ((a && c == 0) || (!a && c == A->ColCount - 1)) {
+			f--;
+			a = !a;
+		}
+		else
+			c = a ? c - 1 : c + 1;
+		Cargar5(A, k - 1, f, c, a);
+	}
+}
+
+void __fastcall TForm1::Cargarporvibora1Click(TObject *Sender) {
+	Word m = StringGrid1->RowCount;
+	Word n = StringGrid1->ColCount;
+	Cargar5(StringGrid1, m*n, m - 1, n - 1, true);
+}
+// ---------------------------------------------------------------------------
