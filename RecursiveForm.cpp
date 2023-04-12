@@ -601,3 +601,23 @@ void __fastcall TForm1::CargarporFilasyColumnas1Click(TObject *Sender) {
 	Cargar3(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
 }
 // ---------------------------------------------------------------------------
+// Cargar por casillas o datos
+void Cargar4(TStringGrid *A, Word k, byte f, byte c) {
+	if (k > 0) {
+		A->Cells[c][f] = k;
+		if (f == 0) {
+			c--;
+			f = A->RowCount - 1;
+		}
+		else
+			f = f - 1;
+		Cargar4(A, k - 1, f, c);
+	}
+}
+
+void __fastcall TForm1::Cargarporcantidaddecasillas1Click(TObject *Sender) {
+	Word m = StringGrid1->RowCount;
+	Word n = StringGrid1->ColCount;
+	Cargar4(StringGrid1, m*n, m - 1, n - 1);
+}
+// ---------------------------------------------------------------------------
