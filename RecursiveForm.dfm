@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Cadenas'
-  ClientHeight = 324
-  ClientWidth = 627
+  ClientHeight = 381
+  ClientWidth = 724
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,51 +16,58 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 21
   object Label0: TLabel
-    Left = 149
-    Top = 66
+    Left = 70
+    Top = 95
     Width = 36
     Height = 21
     Caption = 'Input'
   end
   object Label1: TLabel
-    Left = 111
-    Top = 165
+    Left = 344
+    Top = 95
     Width = 82
     Height = 21
     Caption = 'Resultado 1'
   end
   object label2: TLabel
-    Left = 111
-    Top = 211
+    Left = 344
+    Top = 130
     Width = 82
     Height = 21
     Caption = 'Resultado 2'
   end
   object Label3: TLabel
-    Left = 149
-    Top = 101
+    Left = 70
+    Top = 130
+    Width = 36
+    Height = 21
+    Caption = 'Input'
+  end
+  object Label4: TLabel
+    Left = 70
+    Top = 165
     Width = 36
     Height = 21
     Caption = 'Input'
   end
   object Input: TEdit
-    Left = 199
-    Top = 63
-    Width = 273
+    Left = 120
+    Top = 92
+    Width = 190
     Height = 29
     TabOrder = 0
   end
   object Result1: TEdit
-    Left = 199
-    Top = 162
-    Width = 273
+    Left = 432
+    Top = 92
+    Width = 222
     Height = 29
     TabOrder = 1
   end
   object Result2: TEdit
-    Left = 199
-    Top = 208
-    Width = 273
+    Left = 432
+    Top = 127
+    Width = 222
     Height = 29
     TabOrder = 2
   end
@@ -74,11 +81,32 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Input2: TEdit
-    Left = 199
-    Top = 98
-    Width = 273
+    Left = 120
+    Top = 127
+    Width = 190
     Height = 29
     TabOrder = 4
+  end
+  object StringGrid1: TStringGrid
+    Left = 120
+    Top = 214
+    Width = 534
+    Height = 43
+    DefaultColWidth = 40
+    DefaultRowHeight = 35
+    FixedCols = 0
+    RowCount = 1
+    FixedRows = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goFixedRowDefAlign]
+    ScrollBars = ssHorizontal
+    TabOrder = 5
+  end
+  object Input3: TEdit
+    Left = 120
+    Top = 162
+    Width = 190
+    Height = 29
+    TabOrder = 6
   end
   object MainMenu1: TMainMenu
     object Menu1: TMenuItem
@@ -153,6 +181,33 @@ object Form1: TForm1
       object testeandostrings1: TMenuItem
         Caption = 'testeando strings'
         OnClick = testeandostrings1Click
+      end
+    end
+    object vector1: TMenuItem
+      Caption = 'vector'
+      object vector2: TMenuItem
+        Caption = 'tama'#241'o del vector'
+        OnClick = vector2Click
+      end
+      object SumarElementos1: TMenuItem
+        Caption = 'Sumar Elementos'
+        OnClick = SumarElementos1Click
+      end
+      object SumarElementoskn1menoselprimero1: TMenuItem
+        Caption = 'Sumar Elementos (k=n-1 menos el primero)'
+        OnClick = SumarElementoskn1menoselprimero1Click
+      end
+      object Sumarkn2derechacorto1: TMenuItem
+        Caption = 'Sumar (k=n/2) derecha corto'
+        OnClick = Sumarkn2derechacorto1Click
+      end
+      object Busquedabinaria1: TMenuItem
+        Caption = 'Busqueda binaria'
+        OnClick = Busquedabinaria1Click
+      end
+      object BubbleSort1: TMenuItem
+        Caption = 'Bubble Sort'
+        OnClick = BubbleSort1Click
       end
     end
   end
