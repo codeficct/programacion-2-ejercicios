@@ -468,13 +468,78 @@ void __fastcall TForm1::SumarElementoskn1menoselprimero1Click(TObject *Sender) {
 // Sumar Elementos desde a hasta la cantidad (k=n/2)
 byte GetAdditionToRange(TStringGrid *v, byte a, byte n) {
 	byte halfLong = (n + 1) / 2;
-	return (n == 0) ? 0 : ((n < 2) ? StrToInt(v[a]) : GetAdditionToRange(v, a, halfLong) +
-		GetAdditionToRange(v, a + halfLong, n / 2));
+	if (n == 0) {
+		return 0;
+	}
+	else if (n < 2) {
+		return StrToInt(v->Cells[a][0]);
+	}
+	else {
+		return GetAdditionToRange(v, a, halfLong) + GetAdditionToRange(v,
+			a + halfLong, n / 2);
+	}
 }
 
-void __fastcall TForm1::Sumarkn2derechacorto1Click(TObject *Sender) {
+void __fastcall TForm1::Sumarkn2derechacorto1Click(TObject * Sender) {
 	byte posInit = StrToInt(Input->Text);
 	byte amount = StrToInt(Input2->Text);
 	Result1->Text = GetAdditionToRange(StringGrid1, posInit, amount);
+}
+
+// ---------------------------------------------------------------------------
+// Algoritmo de busqueda binaria
+// v[2,4,6,8,10,12,15], x=12
+int FindElement(TStringGrid *v, int x, byte a, byte b) {
+	int p;
+	byte n = b - a + 1;
+	if (n == 0) {
+		p = -1;
+	}
+	else if (n == 1) {
+		if (x == StrToInt(v->Cells[n][0])) {
+			p = a;
+		}
+	}
+	else {
+		byte c = (a + b) / 2;
+		if (x == StrToInt(v->Cells[c][0])) {
+			p = c;
+		}
+		else {
+			p = x < StrToInt(v->Cells[c][0]) //
+				? FindElement(v, x, a, c - 1) //
+				: FindElement(v, x, c + 1, b);
+		}
+	}
+	return p;
+}
+
+void __fastcall TForm1::Busquedabinaria1Click(TObject *Sender) {
+	Result1->Text = FindElement(StringGrid1, StrToInt(Input->Text), 0,
+		StringGrid1->ColCount - 1);
+}
+
+// ---------------------------------------------------------------------------
+void burbujear(TStringGrid *v, byte n) {
+	if (n > 1) {
+		burbujear(v, n - 1);
+		if (v->Cells[n - 2][0] > v->Cells[n - 1][0]) {
+			int a = StrToInt(v->Cells[n - 2][0]);
+			v->Cells[n - 2][0] = v->Cells[n - 1][0];
+			v->Cells[n - 1][0] = a;
+		}
+	}
+}
+
+void BubbleSort(TStringGrid *v, byte n) {
+	if (n > 1) {
+		burbujear(v, n);
+		BubbleSort(v, n - 1);
+	}
+
+}
+
+void __fastcall TForm1::BubbleSort1Click(TObject *Sender) {
+	BubbleSort(StringGrid1, StringGrid1->ColCount);
 }
 // ---------------------------------------------------------------------------
