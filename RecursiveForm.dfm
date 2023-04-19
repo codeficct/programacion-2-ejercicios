@@ -1,8 +1,8 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Cadenas'
-  ClientHeight = 381
+  Caption = 'Formulario de Recursion'
+  ClientHeight = 459
   ClientWidth = 724
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,64 +16,64 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 21
   object Label0: TLabel
-    Left = 70
-    Top = 95
-    Width = 36
+    Left = 67
+    Top = 112
+    Width = 49
     Height = 21
-    Caption = 'Input'
+    Caption = 'Input 1'
   end
   object Label1: TLabel
-    Left = 344
-    Top = 95
+    Left = 346
+    Top = 112
     Width = 82
     Height = 21
     Caption = 'Resultado 1'
   end
   object label2: TLabel
-    Left = 344
-    Top = 130
+    Left = 346
+    Top = 147
     Width = 82
     Height = 21
     Caption = 'Resultado 2'
   end
   object Label3: TLabel
-    Left = 70
-    Top = 130
-    Width = 36
+    Left = 67
+    Top = 147
+    Width = 49
     Height = 21
-    Caption = 'Input'
+    Caption = 'Input 2'
   end
   object Label4: TLabel
-    Left = 70
-    Top = 165
-    Width = 36
+    Left = 67
+    Top = 182
+    Width = 49
     Height = 21
-    Caption = 'Input'
+    Caption = 'Input 3'
   end
   object Input: TEdit
-    Left = 120
-    Top = 92
+    Left = 122
+    Top = 109
     Width = 190
     Height = 29
     TabOrder = 0
   end
   object Result1: TEdit
-    Left = 432
-    Top = 92
+    Left = 434
+    Top = 109
     Width = 222
     Height = 29
     TabOrder = 1
   end
   object Result2: TEdit
-    Left = 432
-    Top = 127
+    Left = 434
+    Top = 144
     Width = 222
     Height = 29
     TabOrder = 2
   end
   object Button1: TButton
-    Left = 463
-    Top = 8
+    Left = 122
+    Top = 65
     Width = 75
     Height = 25
     Caption = 'Recursivo'
@@ -81,19 +81,19 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Input2: TEdit
-    Left = 120
-    Top = 127
+    Left = 122
+    Top = 144
     Width = 190
     Height = 29
     TabOrder = 4
   end
   object StringGrid1: TStringGrid
-    Left = 120
-    Top = 214
+    Left = 122
+    Top = 231
     Width = 534
-    Height = 43
-    DefaultColWidth = 40
-    DefaultRowHeight = 35
+    Height = 163
+    DefaultColWidth = 30
+    DefaultRowHeight = 30
     FixedCols = 0
     RowCount = 1
     FixedRows = 0
@@ -102,11 +102,20 @@ object Form1: TForm1
     TabOrder = 5
   end
   object Input3: TEdit
-    Left = 120
-    Top = 162
+    Left = 122
+    Top = 179
     Width = 190
     Height = 29
     TabOrder = 6
+  end
+  object Button2: TButton
+    Left = 203
+    Top = 65
+    Width = 109
+    Height = 25
+    Caption = 'Matriz (size)'
+    TabOrder = 7
+    OnClick = Button2Click
   end
   object MainMenu1: TMainMenu
     object Menu1: TMenuItem
@@ -208,6 +217,29 @@ object Form1: TForm1
       object BubbleSort1: TMenuItem
         Caption = 'Bubble Sort'
         OnClick = BubbleSort1Click
+      end
+    end
+    object Matriz1: TMenuItem
+      Caption = 'Matriz'
+      object Matriz2: TMenuItem
+        Caption = 'Cargar por filas'
+        OnClick = Matriz2Click
+      end
+      object Cargarporcolumnas1: TMenuItem
+        Caption = 'Cargar por columnas'
+        OnClick = Cargarporcolumnas1Click
+      end
+      object CargarporFilasyColumnas1: TMenuItem
+        Caption = 'Cargar por Filas y Columnas'
+        OnClick = CargarporFilasyColumnas1Click
+      end
+      object Cargarporcantidaddecasillas1: TMenuItem
+        Caption = 'Cargar por cantidad de casillas'
+        OnClick = Cargarporcantidaddecasillas1Click
+      end
+      object Cargarporvibora1: TMenuItem
+        Caption = 'Cargar por  vibora'
+        OnClick = Cargarporvibora1Click
       end
     end
   end

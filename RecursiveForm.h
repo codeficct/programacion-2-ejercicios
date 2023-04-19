@@ -52,6 +52,13 @@ __published: // IDE-managed Components
 	TMenuItem *Sumarkn2derechacorto1;
 	TMenuItem *Busquedabinaria1;
 	TMenuItem *BubbleSort1;
+	TMenuItem *Matriz1;
+	TMenuItem *Matriz2;
+	TButton *Button2;
+	TMenuItem *Cargarporcolumnas1;
+	TMenuItem *CargarporFilasyColumnas1;
+	TMenuItem *Cargarporcantidaddecasillas1;
+	TMenuItem *Cargarporvibora1;
 
 	void __fastcall Eliminardigitosimpares1Click(TObject* Sender);
 	void __fastcall digitomayorymenor2Click(TObject* Sender);
@@ -77,6 +84,12 @@ __published: // IDE-managed Components
 	void __fastcall Sumarkn2derechacorto1Click(TObject *Sender);
 	void __fastcall Busquedabinaria1Click(TObject *Sender);
 	void __fastcall BubbleSort1Click(TObject *Sender);
+	void __fastcall Matriz2Click(TObject *Sender);
+	void __fastcall Button2Click(TObject *Sender);
+	void __fastcall Cargarporcolumnas1Click(TObject *Sender);
+	void __fastcall CargarporFilasyColumnas1Click(TObject *Sender);
+	void __fastcall Cargarporcantidaddecasillas1Click(TObject *Sender);
+	void __fastcall Cargarporvibora1Click(TObject *Sender);
 
 private: // User declarations
 public: // User declarations
