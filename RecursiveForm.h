@@ -59,6 +59,9 @@ __published: // IDE-managed Components
 	TMenuItem *CargarporFilasyColumnas1;
 	TMenuItem *Cargarporcantidaddecasillas1;
 	TMenuItem *Cargarporvibora1;
+	TRadioButton *RadioButton1;
+	TRadioButton *RadioButton2;
+	TMenuItem *Cargarexpansion1;
 
 	void __fastcall Eliminardigitosimpares1Click(TObject* Sender);
 	void __fastcall digitomayorymenor2Click(TObject* Sender);
@@ -90,6 +93,9 @@ __published: // IDE-managed Components
 	void __fastcall CargarporFilasyColumnas1Click(TObject *Sender);
 	void __fastcall Cargarporcantidaddecasillas1Click(TObject *Sender);
 	void __fastcall Cargarporvibora1Click(TObject *Sender);
+	void __fastcall FormMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+          int X, int Y);
+	void __fastcall Cargarexpansion1Click(TObject *Sender);
 
 private: // User declarations
 public: // User declarations
