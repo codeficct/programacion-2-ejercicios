@@ -66,7 +66,7 @@ void __fastcall TForm1::Sumar1Click(TObject* Sender) {
 // 3) Escribir una función que sume los dígitos primos de un número
 bool IsPrime(byte dig) {
 	return !((dig == 0) || (dig == 4) || (dig == 6) || (dig == 8) ||
-		(dig == 9)); // devolvemos true si el digito es primo
+			(dig == 9)); // devolvemos true si el digito es primo
 }
 
 byte AddDigitPrimes(Cardinal x) {
@@ -86,7 +86,7 @@ void __fastcall TForm1::SumarPrimos1Click(TObject* Sender) {
 // 4) Escribir una función que devuelva el dígito mayor de un número
 byte GetMajorDigit(Cardinal x) {
 	if (x < 10) // caso base
-			return x;
+				return x;
 	else { // general case
 		byte lastDigit = x % 10;
 		byte m = GetMajorDigit(x / 10);
@@ -107,10 +107,10 @@ void MoveDigitMajorAtEnd(Cardinal& x) {
 		MoveDigitMajorAtEnd(x);
 		minor = x % 10;
 		x = (major >= minor)
-			// si "major" es el dígito mayor, pegamos al final
-			? x * 10 + major
-			// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
-			: ((x / 10) * 10 + major) * 10 + minor;
+				// si "major" es el dígito mayor, pegamos al final
+				? x * 10 + major
+				// sino -> cortamos y intercambiamos ej) 213 54 => 213 45
+				: ((x / 10) * 10 + major) * 10 + minor;
 	}
 }
 
@@ -203,7 +203,7 @@ void __fastcall TForm1::digitomayorymenor2Click(TObject* Sender) {
 // 10) Contar letras de una cadena
 bool IsLetter(char l) { // verificar si un caracter es una letra
 	AnsiString letters =
-		"qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLÑZXCVBNMáéíóúÁÉÍÓÚ";
+			"qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLÑZXCVBNMáéíóúÁÉÍÓÚ";
 	return letters.Pos(l) > 0;
 }
 
@@ -304,7 +304,7 @@ AnsiString DeleteRepeatVowelWord(AnsiString x) {
 }
 
 void __fastcall TForm1::Eliminarpalabrasqueserepitansuvocal1Click
-	(TObject* Sender) {
+		(TObject* Sender) {
 	Result1->Text = DeleteRepeatVowelWord(Input->Text);
 }
 
@@ -438,14 +438,14 @@ void __fastcall TForm1::vector2Click(TObject *Sender) {
 // 15) Realizar una funcion que devuelva la suma de los elementos de un vector
 byte GetAdditionOfVector(TStringGrid *v, byte n) {
 	return n == 0
-		// caso base
-		? 0 : GetAdditionOfVector(v, n - 1) + StrToInt(v->Cells[n - 1][0]);
+			// caso base
+			? 0 : GetAdditionOfVector(v, n - 1) + StrToInt(v->Cells[n - 1][0]);
 }
 
 byte GetAdditionOfVector2(TStringGrid *v, byte n) {
 	return n == 0
-		// caso base
-		? 0 : GetAdditionOfVector(v, n - 1) + StrToInt(v->Cells[n - n + 1][0]);
+			// caso base
+			? 0 : GetAdditionOfVector(v, n - 1) + StrToInt(v->Cells[n - n + 1][0]);
 }
 
 void __fastcall TForm1::SumarElementos1Click(TObject *Sender) {
@@ -455,13 +455,13 @@ void __fastcall TForm1::SumarElementos1Click(TObject *Sender) {
 // ---------------------------------------------------------------------------
 byte GetAdditionOfVector3(TStringGrid *v, byte a, byte b) {
 	return ((b - a + 1) == 0)
-		// caso base
-		? 0 : GetAdditionOfVector3(v, a + 1, b) + StrToInt(v->Cells[a][0]);
+			// caso base
+			? 0 : GetAdditionOfVector3(v, a + 1, b) + StrToInt(v->Cells[a][0]);
 }
 
 void __fastcall TForm1::SumarElementoskn1menoselprimero1Click(TObject *Sender) {
 	Result1->Text = GetAdditionOfVector3(StringGrid1, 0,
-		StringGrid1->ColCount - 1);
+			StringGrid1->ColCount - 1);
 }
 
 // ---------------------------------------------------------------------------
@@ -476,7 +476,7 @@ byte GetAdditionToRange(TStringGrid *v, byte a, byte n) {
 	}
 	else {
 		return GetAdditionToRange(v, a, halfLong) + GetAdditionToRange(v,
-			a + halfLong, n / 2);
+				a + halfLong, n / 2);
 	}
 }
 
@@ -507,8 +507,8 @@ int FindElement(TStringGrid *v, int x, byte a, byte b) {
 		}
 		else {
 			p = x < StrToInt(v->Cells[c][0]) //
-				? FindElement(v, x, a, c - 1) //
-				: FindElement(v, x, c + 1, b);
+					? FindElement(v, x, a, c - 1) //
+					: FindElement(v, x, c + 1, b);
 		}
 	}
 	return p;
@@ -516,7 +516,7 @@ int FindElement(TStringGrid *v, int x, byte a, byte b) {
 
 void __fastcall TForm1::Busquedabinaria1Click(TObject *Sender) {
 	Result1->Text = FindElement(StringGrid1, StrToInt(Input->Text), 0,
-		StringGrid1->ColCount - 1);
+			StringGrid1->ColCount - 1);
 }
 
 // ---------------------------------------------------------------------------
@@ -542,6 +542,7 @@ void BubbleSort(TStringGrid *v, byte n) {
 void __fastcall TForm1::BubbleSort1Click(TObject *Sender) {
 	BubbleSort(StringGrid1, StringGrid1->ColCount);
 }
+
 // ---------------------------------------------------------------------------
 // ALGORITMOS CON MATRICES
 // Dimensionar StringGrid para matrices
@@ -549,6 +550,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender) {
 	StringGrid1->ColCount = StrToInt(Input->Text);
 	StringGrid1->RowCount = StrToInt(Input2->Text);
 }
+
 // ---------------------------------------------------------------------------
 // Solucion 1 para cargar una matriz randómicamente por filas
 void LlenarFilas(TStringGrid *A, byte f, byte n) {
@@ -568,6 +570,7 @@ void Cargar1(TStringGrid *A, byte m, byte n) {
 void __fastcall TForm1::Matriz2Click(TObject *Sender) {
 	Cargar1(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
 }
+
 // ---------------------------------------------------------------------------
 // Solucion 2 para cargar una matriz randómicamente por columnas
 void LlenarColumnas(TStringGrid *A, byte c, byte n) {
@@ -587,6 +590,7 @@ void Cargar2(TStringGrid *A, byte m, byte n) {
 void __fastcall TForm1::Cargarporcolumnas1Click(TObject *Sender) {
 	Cargar2(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
 }
+
 // ---------------------------------------------------------------------------
 // Solucion 3 por filas y columnas
 void Cargar3(TStringGrid *A, byte m, byte n) {
@@ -600,6 +604,7 @@ void Cargar3(TStringGrid *A, byte m, byte n) {
 void __fastcall TForm1::CargarporFilasyColumnas1Click(TObject *Sender) {
 	Cargar3(StringGrid1, StringGrid1->RowCount, StringGrid1->ColCount);
 }
+
 // ---------------------------------------------------------------------------
 // Cargar por casillas o datos
 void Cargar4(TStringGrid *A, Word k, byte f, byte c) {
@@ -620,6 +625,7 @@ void __fastcall TForm1::Cargarporcantidaddecasillas1Click(TObject *Sender) {
 	Word n = StringGrid1->ColCount;
 	Cargar4(StringGrid1, m*n, m - 1, n - 1);
 }
+
 // ---------------------------------------------------------------------------
 // Cargar matriz por el metodo de la vibora xd
 void Cargar5(TStringGrid *A, Word k, byte f, byte c, bool a) {
@@ -639,5 +645,68 @@ void __fastcall TForm1::Cargarporvibora1Click(TObject *Sender) {
 	Word m = StringGrid1->RowCount;
 	Word n = StringGrid1->ColCount;
 	Cargar5(StringGrid1, m*n, m - 1, n - 1, true);
+}
+
+// ---------------------------------------------------------------------------
+void Rellenar(TCanvas *A, int x, int y, TColor anterior, TColor nuevo) {
+	if (A->Pixels[x][y] == anterior) {
+		A->Pixels[x][y] = nuevo;
+		Rellenar(A, x, y - 1, anterior, nuevo);
+		Rellenar(A, x, y + 1, anterior, nuevo);
+		Rellenar(A, x - 1, y, anterior, nuevo);
+		Rellenar(A, x + 1, y, anterior, nuevo);
+	}
+}
+
+void __fastcall TForm1::FormMouseDown(TObject *Sender, TMouseButton Button,
+		TShiftState Shift, int X, int Y) {
+	if (RadioButton1->Checked) {
+		Canvas->Pen->Width = 2;
+		Canvas->Ellipse(X - 50, Y - 50, X + 50, Y + 50);
+	}
+	if (RadioButton2->Checked) {
+		Rellenar(Canvas, X, Y, Canvas->Pixels[X][Y], clRed);
+	}
+}
+
+// ---------------------------------------------------------------------------
+void LlenarF(TStringGrid *A, byte f, byte d, byte a, byte b) {
+	byte n = b - a + 1;
+	if (n > 0) {
+		LlenarF(A, f, d, a + 1, b);
+		A->Cells[a][f] = d;
+	}
+}
+
+void LlenarC(TStringGrid *A, byte c, byte d, byte a, byte b) {
+	byte n = b - a + 1;
+	if (n > 0) {
+		LlenarC(A, c, d, a + 1, b);
+		A->Cells[c][a] = d;
+	}
+}
+
+void Expancion(TStringGrid * A, byte fa, byte fb, byte ca, byte cb) {
+	byte m = fb - fa + 1, n = cb - ca + 1;
+	if (m == 1) {
+		A->Cells[ca][fa] = 1;
+	}
+	else if (m > 0) {
+		Expancion(A, fa + 1, fb - 1, ca + 1, cb - 1);
+
+		byte d = (m + 1) / 2;
+
+		LlenarF(A, fa, d, ca, cb);
+		LlenarF(A, fb, d, ca, cb);
+
+		LlenarC(A, ca, d, fa, fb);
+		LlenarC(A, cb, d, fa, fb);
+	}
+}
+
+void __fastcall TForm1::Cargarexpansion1Click(TObject *Sender) {
+	byte m = StringGrid1->RowCount;
+	StringGrid1->ColCount = m;
+	Expancion(StringGrid1, 0, m - 1, 0, m - 1);
 }
 // ---------------------------------------------------------------------------
