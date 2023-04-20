@@ -13,6 +13,7 @@ object Form1: TForm1
   Menu = MainMenu1
   OldCreateOrder = True
   Position = poDesktopCenter
+  OnMouseDown = FormMouseDown
   PixelsPerInch = 96
   TextHeight = 21
   object Label0: TLabel
@@ -116,6 +117,22 @@ object Form1: TForm1
     Caption = 'Matriz (size)'
     TabOrder = 7
     OnClick = Button2Click
+  end
+  object RadioButton1: TRadioButton
+    Left = 584
+    Top = 16
+    Width = 113
+    Height = 17
+    Caption = 'Circulito'
+    TabOrder = 8
+  end
+  object RadioButton2: TRadioButton
+    Left = 584
+    Top = 39
+    Width = 113
+    Height = 17
+    Caption = 'Pintar'
+    TabOrder = 9
   end
   object MainMenu1: TMainMenu
     object Menu1: TMenuItem
@@ -240,6 +257,10 @@ object Form1: TForm1
       object Cargarporvibora1: TMenuItem
         Caption = 'Cargar por  vibora'
         OnClick = Cargarporvibora1Click
+      end
+      object Cargarexpansion1: TMenuItem
+        Caption = 'Cargar (expansion)'
+        OnClick = Cargarexpansion1Click
       end
     end
   end
