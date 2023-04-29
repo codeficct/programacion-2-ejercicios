@@ -709,4 +709,84 @@ void __fastcall TForm1::Cargarexpansion1Click(TObject *Sender) {
 	StringGrid1->ColCount = m;
 	Expancion(StringGrid1, 0, m - 1, 0, m - 1);
 }
+
 // ---------------------------------------------------------------------------
+// Algoritmo de vector para cargar una matriz
+void CargarV(TStringGrid *V, byte n) {
+	if (n > 0) {
+		byte m = V->RowCount;
+		CargarV(V, n - 1);
+		V->Cells[(n - 1) / m][(n - 1) % m] = Random(25);
+	}
+}
+
+void __fastcall TForm1::Cargarconalgoritmodevector1Click(TObject *Sender) {
+	CargarV(StringGrid1, StringGrid1->RowCount*StringGrid1->ColCount);
+}
+
+// ---------------------------------------------------------------------------
+byte FrecuencyOfElement(TStringGrid *A, byte n, int x) {
+	// byte m = A->RowCount;
+	byte c;
+	if (n == 0) {
+		c = 0;
+	}
+	else {
+		byte m = A->RowCount;
+		c = FrecuencyOfElement(A, n - 1, x);
+		if (x == A->Cells[(n - 1) / m][(n - 1) % m]) {
+			c++;
+		}
+	}
+	return c;
+	// return n == 0 ? 0 // caso base
+	// : FrecuencyOfElement(A, n - 1, x) +
+	// (x == A->Cells[(n - 1) / m][(n - 1) % m] ? 1 : 0);
+}
+
+void __fastcall TForm1::Frecuenciadeunnumero1Click(TObject *Sender) {
+	Input2->Text = FrecuencyOfElement(StringGrid1,
+			StringGrid1->RowCount * StringGrid1->ColCount, StrToInt(Input->Text));
+}
+
+// ---------------------------------------------------------------------------
+// busqueda binaria para una matriz
+bool BusquedaBinariaMatriz(TStringGrid *v, byte x, byte a, byte b) {
+	int p;
+	byte m = v->RowCount;
+	byte n = b - a + 1;
+	if (n == 0) {
+		p = false;
+	}
+	else if (n == 1) {
+		if (x == StrToInt(v->Cells[b / m][b % m])) {
+			p = true;
+		}
+	}
+	else {
+		byte c = (a + b) / 2;
+		if (x == StrToInt(v->Cells[c / m][c % m])) {
+			p = true;
+		}
+		else {
+			p = x < StrToInt(v->Cells[c / m][c % m]) //
+					? BusquedaBinariaMatriz(v, x, a, c - 1) //
+					: BusquedaBinariaMatriz(v, x, c + 1, b);
+		}
+	}
+	return p;
+}
+
+void __fastcall TForm1::Busquedabinaria2Click(TObject *Sender) {
+	Input2->Text = BusquedaBinariaMatriz(StringGrid1, StrToInt(Input->Text), 0,
+			StringGrid1->RowCount * StringGrid1->ColCount - 1) ? "Encontrado" :
+			"No hay";
+}
+
+// ---------------------------------------------------------------------------
+// Invertir los datos de la matriz
+void InvertirUnaMatriz() {
+	if (x > 1) {
+    InvertirUnaMatriz();
+	}
+}
