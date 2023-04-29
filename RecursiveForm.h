@@ -62,6 +62,9 @@ __published: // IDE-managed Components
 	TRadioButton *RadioButton1;
 	TRadioButton *RadioButton2;
 	TMenuItem *Cargarexpansion1;
+	TMenuItem *Cargarconalgoritmodevector1;
+	TMenuItem *Frecuenciadeunnumero1;
+	TMenuItem *Busquedabinaria2;
 
 	void __fastcall Eliminardigitosimpares1Click(TObject* Sender);
 	void __fastcall digitomayorymenor2Click(TObject* Sender);
@@ -96,6 +99,9 @@ __published: // IDE-managed Components
 	void __fastcall FormMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall Cargarexpansion1Click(TObject *Sender);
+	void __fastcall Cargarconalgoritmodevector1Click(TObject *Sender);
+	void __fastcall Frecuenciadeunnumero1Click(TObject *Sender);
+	void __fastcall Busquedabinaria2Click(TObject *Sender);
 
 private: // User declarations
 public: // User declarations
