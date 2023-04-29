@@ -262,6 +262,18 @@ object Form1: TForm1
         Caption = 'Cargar (expansion)'
         OnClick = Cargarexpansion1Click
       end
+      object Cargarconalgoritmodevector1: TMenuItem
+        Caption = 'Cargar con algoritmo de vector'
+        OnClick = Cargarconalgoritmodevector1Click
+      end
+      object Frecuenciadeunnumero1: TMenuItem
+        Caption = 'Frecuencia de un numero'
+        OnClick = Frecuenciadeunnumero1Click
+      end
+      object Busquedabinaria2: TMenuItem
+        Caption = 'Busqueda binaria'
+        OnClick = Busquedabinaria2Click
+      end
     end
   end
 end
