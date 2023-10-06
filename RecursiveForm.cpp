@@ -86,7 +86,7 @@ void __fastcall TForm1::SumarPrimos1Click(TObject* Sender) {
 // 4) Escribir una función que devuelva el dígito mayor de un número
 byte GetMajorDigit(Cardinal x) {
 	if (x < 10) // caso base
-				return x;
+  return x;
 	else { // general case
 		byte lastDigit = x % 10;
 		byte m = GetMajorDigit(x / 10);
